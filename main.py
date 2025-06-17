@@ -2,8 +2,10 @@ from flask import Flask, jsonify, request
 import pandas as pd
 import joblib
 from sklearn.feature_extraction.text import CountVectorizer
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Load Dataset
 df = pd.read_excel("cybercrime_dummy_data_10k.xlsx")

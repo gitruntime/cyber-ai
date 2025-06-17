@@ -3,3 +3,5 @@ pandas
 joblib
 scikit-learn
 openpyxl
+gunicorn
+flask-cors
