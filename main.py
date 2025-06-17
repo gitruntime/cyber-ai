@@ -6,12 +6,12 @@ from sklearn.feature_extraction.text import CountVectorizer
 app = Flask(__name__)
 
 # Load Dataset
-df = pd.read_excel("/cybercrime_dummy_data_10k.xlsx")
+df = pd.read_excel("cybercrime_dummy_data_10k.xlsx")
 df['Hour'] = pd.to_datetime(df['Time of Incident'], format='%H:%M:%S').dt.hour
 
 # Load Models
-tfidf = joblib.load("/tfidf_vectorizer.joblib")
-text_classifier = joblib.load("/text_classifier_model.joblib")
+tfidf = joblib.load("tfidf_vectorizer.joblib")
+text_classifier = joblib.load("text_classifier_model.joblib")
 
 # Predefined Mitigation Steps
 attack_guidelines = {
