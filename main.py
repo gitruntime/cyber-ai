@@ -73,19 +73,19 @@ def platform_distribution():
 @app.route('/api/attack-types')
 def attack_types():
     result = df['Attack Type'].value_counts().reset_index()
-    result.columns = ['Attack Type', 'Count']
+    result.columns = ['Attack-Type', 'Count']
     return jsonify(result.to_dict(orient='records'))
 
 @app.route('/api/flagged-links')
 def flagged_links():
     links = df[df['Suspicious Link'] != '']['Suspicious Link'].value_counts().reset_index()
-    links.columns = ['Suspicious Link', 'Count']
+    links.columns = ['Suspicious-Link', 'Count']
     return jsonify(links.to_dict(orient='records'))
 
 @app.route('/api/pattern-analysis')
 def pattern_analysis():
     pattern = df.groupby(['Device Used', 'Attack Type'])['Incident ID'].count().reset_index()
-    pattern.columns = ['Device Used', 'Attack Type', 'Count']
+    pattern.columns = ['Device-Used', 'Attack-Type', 'Count']
     return jsonify(pattern.to_dict(orient='records'))
 
 @app.route('/api/predict-attack-type', methods=['POST'])
